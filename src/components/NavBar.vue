@@ -11,9 +11,13 @@
         <li class="nav-item">
           <router-link to="/home"  class="nav-link">Home</router-link>
         </li>
+                  <li class="nav-item">
+   <router-link to="/products" class="nav-link" >Products</router-link>
+        </li>
         <li class="nav-item">
    <router-link to="/about" class="nav-link" >About</router-link>
         </li>
+ 
        
       </ul>
       <form class="d-flex">
@@ -28,7 +32,7 @@
 
 <script>
 export default {
-  name: "NavBar",
+  name: "Navbar",
   props: {
     msg: String,
   },
