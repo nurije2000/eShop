@@ -107,6 +107,11 @@ export default {
   name: "admin",
   components: {
     Hero
+  },
+  methods:{
+      closeMenu(){
+          $(".page-wrapper").toggleClass("toggled");
+      }
   }
 };
 </script>
