@@ -73,14 +73,69 @@
 
 
 <script>
-import firebase from '../firebase'
-
+import {fb,db} from '../firebase'
 export default {
   name: "Login",
   props: {
-    msg: String,
+    msg: String
   },
+  data(){
+      return {
+          name:null,
+          email:null,
+          password:null
+      }
+  },
+  methods:{
+      login(){
+          fb.auth().signInWithEmailAndPassword(this.email, this.password)
+                        .then(() => {
+                        $('#login').modal('hide')
+                          this.$router.replace('admin');  
+                        })
+                        .catch(function(error) {
+                            // Handle Errors here.
+                            var errorCode = error.code;
+                            var errorMessage = error.message;
+                            if (errorCode === 'auth/wrong-password') {
+                                alert('Wrong password.');
+                            } else {
+                                alert(errorMessage);
+                            }
+                            console.log(error);
+                    });
+      },
+        register(){
+            fb.auth().createUserWithEmailAndPassword(this.email, this.password)
+                .then((user) => {
+                    $('#login').modal('hide')
+                    
+                    db.collection("profiles").doc(user.user.uid).set({
+                        name: this.name
+                    })
+                    .then(function() {
+                        console.log("Document successfully written!");
+                    })
+                    .catch(function(error) {
+                        console.error("Error writing document: ", error);
+                    });
+                    this.$router.replace('admin');
+                })
+                .catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                if (errorCode == 'auth/weak-password') {
+                    alert('The password is too weak.');
+                } else {
+                    alert(errorMessage);
+                }
+                console.log(error);
+            });
+      }
+  }
 };
+                
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
