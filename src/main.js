@@ -2,8 +2,9 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router"; 
 import jQuery from 'jquery';
-import {fb} from './firebase'
- 
+import {fb} from './firebase';
+
+
 window.$ = window.jQuery = jQuery;
 
 import 'popper.js'; 
@@ -21,7 +22,6 @@ fb.auth().onAuthStateChanged(function(user) {
   if(!app){
     new Vue({
       router,
-      store,
       render: h => h(App)
     }).$mount("#app");
     
