@@ -28,6 +28,30 @@
               <div class="form-group">
                 <button  @click="saveData" class="btn btn-primary">Save Data </button>
               </div>
+              <hr>
+            
+            <h3>Products list</h3>
+  
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Price</th>
+                      <th>Modify</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <tr v-bind:key="product in products">
+                        <td>
+                          {{product.name}}
+                        </td>
+
+                        <td>
+                          {{product.price}}
+                        </td>
+                      </tr>
+                  </tbody>
+                </table>
          </div>
      </div> 
   </div>
@@ -43,6 +67,7 @@ export default {
   },
   data(){
     return{
+      products: [],
       product:{
       name:null,
       price:null
@@ -51,20 +76,33 @@ export default {
     }
   },
   methods:{
+    readData(){
+  db.collection('products').get().then((querySnapshot) => {
+     // this.products = querySnapshot;
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        this.products.push(doc.data());
+      });
+    });
+    },
+
     saveData(){
       db.collection("products").add(this.product)
       .then((docRef)=>{
         console.log("Document written with ID",docRef.id);
-        this.reset();
+        this.readData();
       })
       .catch(function(docRef){
         console.error("Error adding document: ",error);
       });
     },
     reset(){
-      Object.assign(this.$data, this.$options.data.apply(this));
+     // Object.assign(this.$data, this.$options.data.apply(this));
 
     }
+  },
+  created(){
+   this.readData();
   }
 };
 </script>
