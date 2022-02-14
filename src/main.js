@@ -11,7 +11,7 @@ import 'popper.js';
 import 'bootstrap'; 
 import './assets/app.scss';
 
-Vue.component('Navbar', require('./components/Navbar.vue').default);
+Vue.component('Navbar', require('./components/NavBar').default);
 
 Vue.config.productionTip = false;
 
