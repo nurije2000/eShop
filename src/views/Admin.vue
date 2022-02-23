@@ -1,6 +1,6 @@
 <template>
   <div class="admin">
-      <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
+<div class="page-wrapper default-theme sidebar-bg bg1 toggled">
         <a id="show-sidebar" @click="closeMenu" class="btn btn-sm btn-dark" href="#">
             <i class="fas fa-bars"></i>
         </a>
@@ -19,8 +19,8 @@
                         <img class="img-responsive img-rounded" src="/img/user.png" alt="User picture">
                     </div>
                     <div class="user-info">
-                        <span class="user-name">Jhon
-                            <strong>Smith</strong>
+                        <span class="user-name">Fjola
+                            <strong>Ismaili</strong>
                         </span>
                         <span class="user-role"> {{email}} </span>
                         <span class="user-status">
@@ -67,14 +67,14 @@
                                 <span>Orders</span>
                             </router-link>
                         </li>
-
                         <li>
                             <router-link to="/admin/profile">
                                 <i class="fa fa-user"></i>
                                 <span>Profile</span>
+                            
                             </router-link>
                         </li>
-                        <li>
+                               <li>
                             <a href="#" @click="logout()">
                                 <i class="fa fa-power-off"></i>
                                 <span>Logout</span>
@@ -94,7 +94,9 @@
     </div>
     <!-- page-wrapper -->
 
-    
+
+
+
   </div>
 </template>
 
@@ -105,14 +107,18 @@ import {fb} from '../firebase';
 
 export default {
   name: "admin",
-  data(){
+
+    data(){
       return{
           name:null,
           email:null,
       }
   },
-  components: {
+ 
+   components: {
     Hero
+  
+
   },
   methods:{
       closeMenu(){
@@ -129,9 +135,10 @@ export default {
       }
   },
   created(){
-      let user = fb.auth().currentUser;
-      this.email = user.email;
+       var user = firebase.auth().currentUser;
+       this.email = user.email;
   }
+  
 };
 </script>
 

@@ -1,4 +1,4 @@
-<template>
+ <template>
   <div class="login">
         <!-- Modal -->
         <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginTitle" aria-hidden="true">
@@ -71,26 +71,27 @@
   </div>
 </template>
 
-
 <script>
-import {fb} from '../firebase'
+
+import {fb , db} from '../firebase'
+
 export default {
   name: "Login",
   props: {
     msg: String
   },
   data(){
-      return {
-          name:null,
-          email:null,
-          password:null
+      return{
+          name: null,
+          email: null,
+          password: null
       }
   },
   methods:{
       login(){
-          fb.auth().signInWithEmailAndPassword(this.email, this.password)
+           fb.auth().signInWithEmailAndPassword(this.email,this.password)
                         .then(() => {
-                        $('#login').modal('hide')
+                           $('#login').modal('hide')
                           this.$router.replace('admin');  
                         })
                         .catch(function(error) {
@@ -104,31 +105,33 @@ export default {
                             }
                             console.log(error);
                     });
+
+
       },
-        register(){
-            fb.auth().createUserWithEmailAndPassword(this.email, this.password)
-                .then((user) => {
+      register(){
+           fb.auth().createUserWithEmailAndPassword(this.email, this.password)
+                .then((user) =>{
                     $('#login').modal('hide')
-                     this.$router.replace('admin');
+                    console.log(user.user.uid);
+                    //this.$router.replace('admin');
                 })
-                .catch(function(error) {
+                .catch(function(error) {                                             
                 // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                if (errorCode == 'auth/weak-password') {
-                    alert('The password is too weak.');
+                 var errorCode = error.code;
+                 var errorMessage = error.message;
+                if (errorCode === 'auth/week-password') {
+                     alert('The password is too weak.');
                 } else {
                     alert(errorMessage);
-                }
-                console.log(error);
+                    }
+                    console.log(error);
             });
       }
+
   }
 };
-                
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
 </style>
