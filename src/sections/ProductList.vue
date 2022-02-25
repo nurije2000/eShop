@@ -15,7 +15,12 @@
           </carousel>
 
             <div class="card-body">
-              <h5>{{product.name}} </h5>
+              <div class="d-flex justify-content-between">
+                 <h5 class="card-title">{{product.name}} </h5>
+                <h5 class="card-price">{{product.price | curency }} </h5>
+
+              </div>
+             
                <a href="#" class="btn btn-primary"> Add to Cart </a>
 
           </div>
@@ -39,7 +44,7 @@ export default {
     return {
       products: [],
     };
-  },
+    ooop  },
   methods: {
     getImage(images) {
       return images[0];

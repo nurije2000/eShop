@@ -15,6 +15,8 @@ Vue.use(VueFirestore, {
 
 
   Vue.use(VueFirestore)
+  import Vue2Filters from 'vue2-filters'
+  Vue.use(Vue2Filters)
 
 window.$ = window.jQuery = jQuery;
 
@@ -38,7 +40,7 @@ window.Toast  = Toast;
 
 
 Vue.component('Navbar', require('./components/NavBar.vue').default);
-Vue.component('products-list', require('./sections/ProductList.vue').default);
+Vue.component('product-list', require('./sections/ProductList.vue').default);
 
 import VueCarousel from 'vue-carousel';
 Vue.use(VueCarousel);
