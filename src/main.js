@@ -37,6 +37,10 @@ window.Toast  = Toast;
 
 
 Vue.component('Navbar', require('./components/NavBar.vue').default);
+Vue.component('products-list', require('./sections/ProductList.vue').default);
+
+import VueCarousel from 'vue-carousel';
+Vue.use(VueCarousel);
 
 Vue.config.productionTip = false;
 
