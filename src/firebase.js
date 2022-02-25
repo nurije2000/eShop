@@ -1,5 +1,8 @@
-import firebase from 'firebase';
-require("firebase/firestore")
+
+import firebase from '@firebase/app'
+import 'firebase/firestore'
+import 'firebase/firebase-auth'
+import 'firebase/storage'
 
 
 var config = {
