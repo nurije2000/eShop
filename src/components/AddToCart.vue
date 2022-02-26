@@ -1,7 +1,7 @@
 <template>
     <div class="add-to-cart">
 
-        <button class="btn btn-primary"> {{name}}</button>
+        <button class="btn btn-primary" @click="addToCart"> {{name}}</button>
 
     </div>
 </template>
@@ -16,11 +16,21 @@ export default {
     },
 
     data () {
-        productName: this.name;
-        productPrice: this.price;
-        product_Id: this.id;
+        return {
+            item : {
+                
+        productName: this.name,
+        productPrice: this.price,
+        product_id: this.id,
+            }
     }
-
+    }, 
+    methods : {
+        
+    addToCart () {
+        this.$store.commit ('addToCart', this.item)
+    }
+    }
 };
 </script>
 
