@@ -20,9 +20,12 @@
                 <h5 class="card-price">{{product.price | curency }} </h5>
 
               </div>
-             
-               <a href="#" class="btn btn-primary"> Add to Cart </a>
-
+              <add-to-cart 
+              :product-image="getImage (product.images)"
+              :product-id="product.id"
+              :price="product.price"
+              :name="product.name"> 
+              </add-to-cart>
           </div>
 
             </div>
@@ -34,10 +37,12 @@
 </template>
 
 <script>
+import AddToCart from '../components/AddToCart.vue';
 import { db } from "../firebase";
 export default {
   name: "Products-list",
-  props: {
+  
+    AddToCartprops: {
     msg: String, 
   },
   data() {
@@ -45,9 +50,12 @@ export default {
       products: [],
     };
     ooop  },
+
+
+
   methods: {
     getImage(images) {
-      return images[0];
+      return  images[0];
     },
   },
   firestore() {

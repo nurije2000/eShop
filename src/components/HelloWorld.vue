@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "add-to-cart",
   props: {
     msg: String,
   },
