@@ -39,6 +39,8 @@ const Toast = Swal.mixin({
 window.Toast  = Toast;
 
 
+import store from './store.js';
+
 Vue.component('Navbar', require('./components/NavBar.vue').default);
 Vue.component('add-to-cart', require('./components/AddToCart.vue').default);
 Vue.component('product-list', require('./sections/ProductList.vue').default);
