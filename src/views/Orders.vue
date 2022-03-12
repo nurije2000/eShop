@@ -12,131 +12,32 @@
                  </p>
               </div>
               <div class="col-md-6">
-                  <img src="/img/svg/orders.svg" alt="" class="img-fluid">
+                  <img src="../assets/orders.svg" alt="" class="img-fluid">
               </div>
             </div>
           </div>
 
           <hr>
 
-          <div class="product-test">
 
-
-            <h3 class="d-inline-block">Orders list</h3>
-            <button @click="addNew" class="btn btn-primary float-right">Add Orders</button>
-
-            <div class="table-responsive">
-              
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Price</th>
-                      <th>Modify</th>
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                
-                
-                     <tr v-for="product in products" v-bind:key="product">
-                        <td>
-                          {{product.name}}
-                        </td>
-
-                        <td>
-                          {{product.price}}
-                        </td>
-
-                        <td>
-
-                          <button class="btn btn-primary" @click="editProduct(product)">Edit</button>
-                          <button class="btn btn-danger" @click="deleteProduct(product)">Delete</button>
-                        </td>
-
-                      </tr>
-
-
-                  </tbody>
-                </table>
-            </div>
-
-          </div>
       </div>
 
-      <!-- Modal -->
-      <div class="modal fade" id="product" tabindex="-1" role="dialog" aria-labelledby="editLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="editLabel">Edit Product</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
+                  <div class="col-md-8" style="margin-left: 200px;">
+                    <h4 class="py-4">Checkout page</h4>
+                     <ul>
+                        <li v-for="item in this.$store.state.cart" v-bind:key="item" class="media">
+                        <img :src="item.productImage" width="80px" class="align-self-center mr-3" alt="">
+                        <div class="media-body">
+                            <h5 class="mt-0">{{item.productName}}
 
-                <div class="row">
-                  <!-- main product -->
-                  <div class="col-md-8">
-                    <div class="form-group">
-                      <input type="text" placeholder="Product Name" v-model="product.name" class="form-control">
-                    </div>
+                            </h5>
+                            <p class="mt-0">{{item.productPrice | currency}}</p>
+                            <p class="mt-0">Quantity : {{item.productQuantity }}</p>
+                        </div>
+                        </li>
 
-                    <div class="form-group">
-                      <vue-editor v-model="product.description"></vue-editor>
-                    </div>
-                  </div>
-                  <!-- product sidebar -->
-                  <div class="col-md-4">
-                    <h4 class="display-6">Product Details</h4>
-                    <hr>
-
-                    <div class="form-group">
-                      <input type="text" placeholder="Product price" v-model="product.price" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                      <input type="text" @keyup.188="addTag" placeholder="Product tags" v-model="tag" class="form-control">
-                      
-                      <div  class="d-flex">
-                    <p v-for="tag in product.tags" v-bind:key="tag">
-                            <span class="p-1">{{tag}}</span>
-                        </p>
-
-                      </div>
-                    </div>
-
-
-                    <div class="form-group">
-                      <label for="product_image">Product Images</label>
-                      <input type="file" @change="uploadImage" class="form-control">
-                    </div>
-
-                    <div class="form-group d-flex">
-                         <div class="p-1" v-for="(image, index) in product.images" v-bind:key="(image,index)">
-                          <div class="img-wrapp">
-                              <img :src="image" alt="" width="80px">
-                              <span class="delete-img" @click="deleteImage(image,index)">X</span>
-                          </div>
-                      </div>
-                    </div>
-
-                  </div>
+                    </ul>
                 </div>
-
-
-
-
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button @click="addProduct()" type="button" class="btn btn-primary" v-if="modal == 'new'">Save changes</button>
-              <button @click="updateProduct()" type="button" class="btn btn-primary" v-if="modal == 'edit'">Apply changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
 
 
     
@@ -146,6 +47,7 @@
 <script>
 import { VueEditor } from "vue2-editor";
 import { fb, db} from '../firebase';
+
 export default {
   name: "Products",
   components: {
@@ -154,6 +56,7 @@ export default {
   props: {
     msg: String
   },
+
   data(){
     return {
         products: [],
@@ -169,27 +72,35 @@ export default {
         tag: null
     }
   },
+
   firestore(){
       return {
         products: db.collection('products'),
       }
   },
   methods:{
+
     deleteImage(img,index){
+
       let image = fb.storage().refFromURL(img);
+
       this.product.images.splice(index,1);
+
       image.delete().then(function() {
         console.log('image deleted');
       }).catch(function(error) {
         // Uh-oh, an error occurred!
         console.log('an error occurred');
       });
+
     },
+
     addTag(){
        this.product.tags.push(this.tag);
        this.tag = "";
     },
     uploadImage(e){
+
       if(e.target.files[0]){
         
           let file = e.target.files[0];
@@ -209,9 +120,14 @@ export default {
             uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
               this.product.images.push(downloadURL);
             });
+
           });
+
       }
+
+
     },
+
     reset(){
       this.product = {
           name:null,
@@ -221,6 +137,7 @@ export default {
           images:[]
       }
     },
+
     addNew(){
         this.modal = 'new';
         this.reset();
@@ -232,14 +149,20 @@ export default {
             type: 'success',
             title: 'Updated  successfully'
           })
+
            $('#product').modal('hide');
     },
+
     editProduct(product){
       this.modal = 'edit';
       this.product = product;
       $('#product').modal('show');
     },
+
+
     deleteProduct(doc){
+
+
       Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -250,17 +173,23 @@ export default {
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.value) {
+
           this.$firestore.products.doc(doc['.key']).delete()
+
           Toast.fire({
             type: 'success',
             title: 'Deleted  successfully'
           })
+
         
         }
       })
+
+
         
     },
     readData(){
+
       
      
     },
@@ -272,18 +201,22 @@ export default {
             type: 'success',
             title: 'Product created successfully'
           })
+
       $('#product').modal('hide');
     }
+
   
   },
   created(){
   
+
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
 .img-wrapp{
   position: relative;
 }
@@ -295,4 +228,5 @@ export default {
 .img-wrapp span.delete-img:hover{
   cursor: pointer;
 }
+
 </style>

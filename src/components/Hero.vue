@@ -1,24 +1,25 @@
 <template>
-    <div class="hero">
+    <div>
         <div class="container h-100">
           <div class="row h-100 justify-content-center align-items-center">
             <div class="col-md-5">
               <div class="hero-content">
                 <h1 class="hero-title">
-                  Vue Shop For Developers
+                 E-Shop
                 </h1>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos numquam tempora, iure delectus totam minus quam aperiam ratione dolores magni voluptates ut necessitatibus odio ipsum fuga, voluptas ab praesentium nihil?
+                  Being a decade old organization makes us more trustworthy.<br> We precheck and preinstall the laptop before it is delivered to you assuring you defect free delivery. <br> 24 Hour service guarantee assured when you buy any It product.
                 </p>
                 <div class="hero-btn mt-5">
-                    <button class="btn custom-btn btn-info mr-5">Explore</button>
-                    <button class="btn custom-btn btn-outline-secondary">Products</button>
+                    <button class="button-29" role="button"><a href="/products">Products</a></button>
+                    .
+                    <button class="button-29" role="button"><a href="/productDetails">Details</a></button>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-7">
                 <div class="graphic">
-                    <img src="img/svg/graphic.svg" alt="">
+                    <img id="logo" src="../assets/hero-logo.png" alt="tech-logo" height="100%" width="100%">
                 </div>
             </div>
           </div>
@@ -40,7 +41,59 @@ export default {
   .hero{
     padding-top: 7rem;
     width: 100%;
-    height: 400px;
+    height: 500px;
     text-align: left;
   }
+
+  //------------------------------------------
+
+/* CSS */
+.button-29 a{
+  text-decoration: none;
+  color:white;
+}
+.button-29 {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0,#8247cf 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.button-29:focus {
+  box-shadow: #8247cf 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px,#8247cf 0 -3px 0 inset;
+}
+
+.button-29:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #8247cf 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-29:active {
+  box-shadow: #8247cf 0 3px 7px inset;
+  transform: translateY(2px);
+}
 </style>

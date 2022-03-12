@@ -6,11 +6,11 @@
               
               <div class="col-md-4">
                   <div class="card product-item">
-                    <img src="/img/products/product1.png" class="card-img-top" alt="...">
+                    <img src="../assets/product/iPhone 13 Pro Max Sierra Blue.png" class="card-img-top" alt="..." width="30%" height="30%">
                         <div class="card-body">
-                            <h5 class="card-title">Iphone 13</h5>
+                            <h5 class="card-title">iPhone 13 Pro Max Sierra Blue</h5>
                             <p class="card-text">
-                                Complete your device with Office 365 and get 1TB cloud storage, Excel, Word, PowerPoint & more. Select your suite during checkout.
+                                iPhone 13 Pro Max 512GB, Sierra Blue
                             </p>
                             <a href="#" class="btn btn-primary">Add to Cart</a>
                         </div>
@@ -19,11 +19,11 @@
 
               <div class="col-md-4">
                   <div class="card product-item">
-                    <img src="/img/products/product2.jfif" class="card-img-top" alt="...">
+                    <img src="../assets/product/iPhone X Black.png" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Iphone 12</h5>
+                            <h5 class="card-title">iPhone X Black</h5>
                             <p class="card-text">
-                               Style and speed. Go beyond the traditional with new Iphone. Featuring improved performance and the full Windows 10 Home experience.
+                               iPhone X 64GB, ngjyra: E zeze
                             </p>
                             <a href="#" class="btn btn-primary">Add to Cart</a>
                         </div>
@@ -32,11 +32,11 @@
 
               <div class="col-md-4">
                   <div class="card product-item">
-                    <img src="/img/products/product3.png" class="card-img-top" alt="...">
+                    <img src="../assets/product/iPhone 11 Red.png" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Iphone 11</h5>
+                            <h5 class="card-title">iPhone 11 Red</h5>
                             <p class="card-text">
-                                    The ultimate creative studio. Let your ideas flow with brilliant color, blazing graphics, faster processors, intuitive tools, and a stunning, adjustable 28” display.
+                                    iPhone 11 128GB, ngjyra: E kuqe
 
                             </p>
                             <a href="#" class="btn btn-primary">Add to Cart</a>
