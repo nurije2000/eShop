@@ -1,5 +1,5 @@
 <template>
-<div class="footer-tech">
+<div class="footer-shop">
      <div class="footer-clean">
         <footer>
             <div class="container">
@@ -47,7 +47,7 @@
 <script>
  
 export default {
-  name: "Footer-tech",
+  name: "Footer-shop",
   props: {
     msg: String,
   },

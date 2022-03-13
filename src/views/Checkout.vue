@@ -1,6 +1,6 @@
 <template>
   <div class="checkout">
-       <Navbar></Navbar>
+       <NavBar></NavBar>
 
         <div class="container mt-5 pt-5">
 
@@ -44,8 +44,9 @@
 
         </div>
         <mini-cart></mini-cart>
-    <footer-tech></footer-tech>
+    <footer-shop></footer-shop>
   </div>
+  
 </template>
 
 <script>

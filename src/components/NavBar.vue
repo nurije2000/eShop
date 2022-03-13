@@ -73,8 +73,8 @@ export default {
   @media (min-width: 992px) { 
     
     .navbar.custom-nav{
-      padding-top:16px;
-      padding-bottom:16px;
+      padding-top:30x;
+      padding-bottom:30px;
       background-color: #fff !important;
     }
    }

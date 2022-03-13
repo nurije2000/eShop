@@ -1,7 +1,7 @@
 <template>
   
     <div class="container" >
-        <Navbar></Navbar>
+        <NavBar></NavBar>
     <div class="content">
 
       <div class="left-side">
@@ -61,24 +61,22 @@
   font-family: "Poppins" , sans-serif;
 }
 body{
-    
-    
-  min-height: 100vh;
-  width: 100%;
-  background: #c8e8e9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+   display:center; 
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   width: 100%;
+   background: #f2f3f7;
 }
 .container{
-  width: 85%;
+  width: flex;
   background: #fff;
   border-radius: 6px;
   padding: 20px 60px 30px 40px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 .container .content{
-  display: flex;
+  display: 300%;
   align-items: center;
   justify-content: space-between;
 }

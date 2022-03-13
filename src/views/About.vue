@@ -1,8 +1,9 @@
 <template>
+
   <div class="about">
-    <Navbar></Navbar>
-      
-    <br>
+      <br>
+    <NavBar></NavBar>
+    
 			<h2 style="text-align:center;"><b>STAFF</b></h2>
 		<br>
              <div class="container">
@@ -77,7 +78,7 @@
 }
 body
 {
-   display: flex;
+   display: center;
    justify-content: center;
    align-items: center;
    min-height: 100vh;
@@ -134,7 +135,7 @@ body
    font-size: 1.7rem;
    font-weight: bold;
    text-align: center;
-   letter-spacing: 1px;
+   letter-spacing: 5px;
 }
 .container .card .content .contentBx h5
 {
@@ -152,12 +153,13 @@ body
    text-decoration: none;
    color: #6c758f;
    font-size: 30px;
-   margin: 10px;
+   margin: 20px;
    transition: color 0.4s;
 }
 .container .card .content .sci a:hover
 {
    color: #0196e3;
+ 
 }
 
 </style>

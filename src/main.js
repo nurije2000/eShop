@@ -36,7 +36,7 @@ window.Toast = Toast;
 
 import store from './store.js';
 
-Vue.component('Navbar', require('./components/Navbar.vue').default);
+Vue.component('NavBar', require('./components/NavBar.vue').default);
 Vue.component('add-to-cart', require('./components/AddToCart.vue').default);
 Vue.component('mini-cart', require('./components/MiniCart.vue').default);
 Vue.component('products-list', require('./sections/ProductList.vue').default);

@@ -1,5 +1,7 @@
 <template>
+
   <div class="products">
+ 
     <div class="container">
       <div class="intro h-100">
         <div class="row h-100 justify-content-center align-items-center">

@@ -1,16 +1,16 @@
 <template>
   <div class="products" id="products">
-    <Navbar></Navbar>
+    <NavBar></NavBar>
     <div class="container">
       <h1 class="text-center p-5">Our Products</h1>
 
       <div class="row">
-        <div class="col-md-4" v-for="product in products" v-bind:key="product">
+        <div class="col-md-4" v-for="product in products" v-bind:key="product  ">
           <div class="card product-item">
             <carousel :perPage="1">
               <slide
                 v-for="(image, index) in product.images"
-                v-bind:key="(image, index)"
+                v-bind:key="(image, index) in product.images"
               >
                 <img
                   :src="image"
