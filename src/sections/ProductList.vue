@@ -7,10 +7,10 @@
       <div class="row">
         <div class="col-md-4" v-for="product in products" v-bind:key="product  ">
           <div class="card product-item">
-            <carousel :perPage="1">
+        <carousel :perPage="1">
               <slide
                 v-for="(image, index) in product.images"
-                v-bind:key="(image, index) in product.images"
+                v-bind:key="(image, index)"
               >
                 <img
                   :src="image"
@@ -20,7 +20,7 @@
               </slide>
             </carousel>
 
-            <div class="card-body">
+             <div class="card-body">
               <div class="d-flex justify-content-between">
                 <h5 class="card-title">{{ product.name }}</h5>
                 <h5 class="card-prices">{{ product.price}}.00€</h5>

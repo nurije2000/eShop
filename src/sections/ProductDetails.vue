@@ -1,6 +1,6 @@
 <template>
   <div class="product-test">
-    <Navbar></Navbar>
+    <NavBar></NavBar>
     <h3 class="d-inline-block float-left">Product Details</h3>
     <div class="table-responsive">
       <table class="table">

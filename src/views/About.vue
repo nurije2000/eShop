@@ -1,7 +1,7 @@
 <template>
 
   <div class="about">
-      <br>
+    
     <NavBar></NavBar>
     
 			<h2 style="text-align:center;"><b>STAFF</b></h2>
