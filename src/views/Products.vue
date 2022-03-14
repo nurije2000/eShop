@@ -94,6 +94,10 @@
                     <div class="form-group">
                       <label for="product_image">Product Image</label>
                       <input type="file" @change="uploadImage" class="form-control">
+                      <div class="p-2">
+            
+                            </div>
+                      
                     </div>
 
                     <div class="form-group d-flex">

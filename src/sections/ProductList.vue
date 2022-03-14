@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-md-4" v-for="product in products" v-bind:key="product  ">
           <div class="card product-item">
-        <carousel :perPage="1">
+            <carousel :perPage="1">
               <slide
                 v-for="(image, index) in product.images"
                 v-bind:key="(image, index)"

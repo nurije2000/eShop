@@ -23,9 +23,10 @@
                   <img
                     :src="image"
                     class="card-img-top"
-                    alt="..."
+                    alt="test"
                     width="150px"
                   />
+ 
                 </slide>
               </carousel>
             </td>
